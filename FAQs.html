@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs | Incredible India - Official Tourism Website</title>
+  <meta name="description" content="Frequently asked questions about Incredible India tourism services, travel information, and booking assistance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* FAQ Page Styles - Consistent with index.html */
+    :root {
+      --primary: #0369a1; /* Matching blue from index.html */
+      --secondary: #0e7490;
+      --accent: #0891b2;
+      --light: #f0f9ff;
+      --white: #ffffff;
+      --dark: #1e293b;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-hero {
+      background: linear-gradient(rgba(3, 105, 161, 0.7), rgba(3, 105, 161, 0.7)), 
+                  url('https://images.unsplash.com/photo-1582979512210-99b6a53386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+    }
+    
+    .faq-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .faq-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-header h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .faq-header p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .faq-search {
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+    }
+    
+    .faq-search input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      font-size: 1rem;
+      padding-right: 3.5rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .faq-search button {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--accent);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    
+    .faq-category {
+      margin-bottom: 3rem;
+    }
+    
+    .faq-category h3 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1.5rem;
+      color: var(--secondary);
+      font-weight: 600;
+      position: relative;
+      padding-left: 1.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .faq-category h3:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      height: 1.5rem;
+      width: 5px;
+      background: var(--accent);
+      border-radius: 3px;
+    }
+    
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    
+    .faq-question {
+      padding: 1.5rem;
+      background: rgba(8, 145, 178, 0.05);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .faq-question:hover {
+      background: rgba(8, 145, 178, 0.1);
+    }
+    
+    .faq-question i {
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: #666;
+      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 1.5rem;
+      padding-top: 0;
+    }
+    
+    .contact-support {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+    }
+    
+    .contact-support h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .faq-hero {
+        padding: 4rem 1rem;
+      }
+      
+      .faq-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .faq-container {
+        padding: 1.5rem;
+        margin: 1rem auto 2rem;
+      }
+      
+      .faq-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .faq-question {
+        padding: 1rem;
+      }
+      
+      .faq-item.active .faq-answer {
+        padding: 1rem;
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation - Consistent with index.html -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <i class="fas fa-map-marked-alt"></i> Indian Tourism
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faqs.html" class="active">FAQs</a></li>
+          <li><a href="login.html" class="btn btn-outline">Login</a></li>
+        </ul>
+        
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section - Similar to index.html but for FAQs -->
+  <section class="faq-hero">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p>Find answers to common questions about traveling in India, bookings, and our services.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="faq-container">
+      <div class="faq-header">
+        <h2>How can we help you?</h2>
+        <p>Browse through our most frequently asked questions or search for specific information below.</p>
+        
+        <div class="faq-search">
+          <input type="text" placeholder="Search FAQs...">
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+      
+      <div class="faq-category">
+        <h3>General Travel Information</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is the best time to visit India?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>The best time to visit India depends on the region you plan to visit. Generally, October to March offers pleasant weather across most parts of the country. The winter months (December-February) are ideal for visiting southern India, while the Himalayan regions are best visited from April to June and September to November.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do I need a visa to visit India?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, most foreign nationals require a visa to enter India. You can apply for an e-Visa online through the Indian government's official website. The process typically takes 3-5 business days. Some nationalities are eligible for visa on arrival, while others must apply in advance at an Indian embassy or consulate.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What vaccinations are required for travel to India?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>While no vaccinations are officially required for entry (unless coming from a yellow fever endemic country), we recommend being up-to-date on routine vaccines and considering vaccinations for Hepatitis A, Typhoid, and Tetanus. Consult with your doctor or a travel medicine specialist at least 4-6 weeks before your trip.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-category">
+        <h3>Booking & Payments</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What payment methods do you accept?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We accept all major credit and debit cards (Visa, MasterCard, American Express), PayPal, and bank transfers. For bookings within India, we also accept UPI payments and select digital wallets. All transactions are secured with SSL encryption for your safety.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is your cancellation policy?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Our cancellation policy varies by service provider. Generally, cancellations made more than 30 days before arrival receive a full refund, 15-30 days receive a 50% refund, and less than 15 days are non-refundable. Some special offers or peak season bookings may have different policies, which will be clearly stated during the booking process.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I modify my booking after confirmation?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, most bookings can be modified, subject to availability and any rate differences. Changes to dates or services may incur modification fees depending on the provider's policy. Please contact our customer support team at least 72 hours before your scheduled service to request changes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faq-category">
+        <h3>Travel Services</h3>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you provide airport transfers?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we can arrange airport transfers at most major airports in India. Transfers can be booked as part of your package or separately. Our representatives will meet you at arrivals with a name sign and assist with your luggage. Please provide your flight details at least 48 hours before arrival.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are your tour guides licensed?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>All our tour guides are officially licensed by the Indian Ministry of Tourism and have extensive knowledge of their regions. They speak fluent English and many other languages. Specialized guides (for wildlife, heritage sites, etc.) have additional certifications in their respective fields.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What safety measures are in place for travelers?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Your safety is our priority. All our partners adhere to strict safety standards. Vehicles are regularly maintained and insured, hotels are vetted for safety features, and guides are trained in first aid. We provide 24/7 emergency support and recommend all travelers purchase comprehensive travel insurance.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-support">
+        <h3>Still have questions?</h3>
+        <p>Our travel experts are available 24/7 to assist you.</p>
+        <a href="contact.html" class="btn">Contact Support</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer - Consistent with index.html -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Incredible India</h3>
+          <p>Discover the land of diverse cultures, rich heritage and breathtaking landscapes.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms & Conditions</a></li>
+            <li><a href="help-center.html">Help Center</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Ministry of Tourism, New Delhi</li>
+            <li><i class="fas fa-phone"></i> +91 11 12345678</li>
+            <li><i class="fas fa-envelope"></i> info@incredibleindia.org</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Incredible India. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button - Consistent with index.html -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Mobile menu toggle - Consistent with index.html
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Back to top button - Consistent with index.html
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // FAQ Accordion Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+    
+    // FAQ Search Functionality
+    const faqSearch = document.querySelector('.faq-search input');
+    
+    faqSearch.addEventListener('input', () => {
+      const searchTerm = faqSearch.value.toLowerCase();
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          item.classList.add('active'); // Open matching items
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
