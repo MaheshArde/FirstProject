@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Experiences | Incredible India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #0a4d68;
+      --secondary: #088395;
+      --accent: #05bfdb;
+      --light: #e8f9fd;
+      --dark: #1a1a2e;
+      --text: #333333;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--text);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      top: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(10, 77, 104, 0.6), rgba(8, 131, 149, 0.6)),
+                  url('experience.jpg') center center/cover no-repeat;
+      color: var(--white);
+      text-align: center;
+      padding: 8rem 0 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      display: block;
+      margin: 1rem auto 0;
+      border-radius: 5px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .experience-section {
+      margin-bottom: 3rem;
+    }
+
+    .experience-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .experience-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .experience-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .experience-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .experience-info {
+      padding: 1.2rem;
+    }
+
+    .experience-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-type {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      background: var(--light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+
+    .experience-desc {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* Hide all sections by default */
+    .experience-category {
+      display: none;
+    }
+
+    /* Show the active section */
+    .experience-category.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--white);
+        width: 100%;
+        height: calc(100vh - 80px);
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        gap: 2rem;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <i class="fas fa-map-marked-alt"></i> Indian Tourism
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="Experience.html" class="active">Experiences</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Incredible Experiences in India</h1>
+      <p>Uncover unforgettable adventures – from vibrant festivals to tranquil yoga retreats and mouthwatering food trails.</p>
+    </div>
+  </section>
+
+  <!-- Experiences Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Top Experiences</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="culture">Culture</button>
+        <button class="filter-btn" data-filter="adventure">Adventure</button>
+        <button class="filter-btn" data-filter="cuisine">Cuisine</button>
+        <button class="filter-btn" data-filter="wellness">Wellness</button>
+        <button class="filter-btn" data-filter="festivals">Festivals</button>
+      </div>
+
+      <!-- All Experiences (Shown by default) -->
+ <div id="all" class="experience-category active">
+        <div class="experience-grid">
+          <!-- Culture Cards -->
+          <div class="experience-card">
+            <img src="D:\mahesh\FinalProject\Imges\Kathakali Performance.webp" alt="Kathakali Dance" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Kathakali Performance</h3>
+              <p class="experience-desc">Witness Kerala's vibrant dance-drama with elaborate costumes.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="D:\mahesh\FinalProject\Imges\Qawwali at Nizamuddin.jpg" alt="Qawwali" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Qawwali at Nizamuddin</h3>
+              <p class="experience-desc">Sufi devotional music in Delhi's historic dargah.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1618221469555-7d3aaa515004" alt="Blue Pottery" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Blue Pottery Workshop</h3>
+              <p class="experience-desc">Create Persian-inspired ceramics in Jaipur.</p>
+            </div>
+          </div>
+
+          <!-- Adventure Cards -->
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1605066833795-41bba82f4f2f" alt="Camel Safari" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>Camel Safari in Rajasthan</h3>
+              <p class="experience-desc">Ride through the golden Thar Desert dunes.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1518632618336-313b8a0a9b6c" alt="White Water Rafting" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>White Water Rafting</h3>
+              <p class="experience-desc">Thrilling rapids on the Ganges in Rishikesh.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1601468161283-5a2a7b3f6073" alt="Paragliding" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>Paragliding in Bir Billing</h3>
+              <p class="experience-desc">Soar above the Dhauladhar mountains.</p>
+            </div>
+          </div>
+
+          <!-- Cuisine Cards -->
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1611605691230-79f53c72d9b0" alt="Street Food" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Delhi Street Food Trail</h3>
+              <p class="experience-desc">Savor chaats and kebabs at Chandni Chowk.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Cooking Class" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Traditional Cooking Class</h3>
+              <p class="experience-desc">Learn authentic recipes from local chefs.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1603893662172-99ed0cea2a08" alt="Spice Tour" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Kerala Spice Tour</h3>
+              <p class="experience-desc">Discover the origins of Indian spices.</p>
+            </div>
+          </div>
+
+          <!-- Wellness Cards -->
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1549388604-817d15aa0110" alt="Yoga" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Yoga Retreat in Rishikesh</h3>
+              <p class="experience-desc">Rejuvenate by the Ganges.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646" alt="Ayurveda" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Ayurvedic Spa Treatment</h3>
+              <p class="experience-desc">Traditional healing in Kerala.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1510894347714-16b3b1e0b9a8" alt="Meditation" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Himalayan Meditation</h3>
+              <p class="experience-desc">Find inner peace in the mountains.</p>
+            </div>
+          </div>
+
+          <!-- Festivals Cards -->
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1603035702879-4fe69df18cdd" alt="Diwali" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Diwali Celebrations</h3>
+              <p class="experience-desc">Festival of lights across India.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1518632618336-313b8a0a9b6c" alt="Holi" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Holi Festival</h3>
+              <p class="experience-desc">Vibrant colors and joy.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018" alt="Pushkar Fair" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Pushkar Camel Fair</h3>
+              <p class="experience-desc">Rajasthan's cultural extravaganza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        
+      </div>
+
+      <!-- Culture Section -->
+      <div id="culture" class="experience-category">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1574717022980-cd41643a7e20" alt="Kathakali Dance" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Kathakali Performance</h3>
+              <p class="experience-desc">Witness Kerala's vibrant dance-drama with elaborate costumes.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1601057273971-1bcb2d22b1f3" alt="Qawwali" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Qawwali at Nizamuddin</h3>
+              <p class="experience-desc">Sufi devotional music in Delhi's historic dargah.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1618221469555-7d3aaa515004" alt="Blue Pottery" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Culture</span>
+              <h3>Blue Pottery Workshop</h3>
+              <p class="experience-desc">Create Persian-inspired ceramics in Jaipur.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adventure Section -->
+      <div id="adventure" class="experience-category">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1605066833795-41bba82f4f2f" alt="Camel Safari" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>Camel Safari in Rajasthan</h3>
+              <p class="experience-desc">Ride through the golden Thar Desert dunes.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1518632618336-313b8a0a9b6c" alt="White Water Rafting" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>White Water Rafting</h3>
+              <p class="experience-desc">Thrilling rapids on the Ganges in Rishikesh.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1601468161283-5a2a7b3f6073" alt="Paragliding" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Adventure</span>
+              <h3>Paragliding in Bir Billing</h3>
+              <p class="experience-desc">Soar above the Dhauladhar mountains.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cuisine Section -->
+      <div id="cuisine" class="experience-category">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1611605691230-79f53c72d9b0" alt="Street Food" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Delhi Street Food Trail</h3>
+              <p class="experience-desc">Savor chaats and kebabs at Chandni Chowk.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950" alt="Cooking Class" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Traditional Cooking Class</h3>
+              <p class="experience-desc">Learn authentic recipes from local chefs.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1603893662172-99ed0cea2a08" alt="Spice Tour" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Cuisine</span>
+              <h3>Kerala Spice Tour</h3>
+              <p class="experience-desc">Discover the origins of Indian spices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wellness Section -->
+      <div id="wellness" class="experience-category">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1549388604-817d15aa0110" alt="Yoga" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Yoga Retreat in Rishikesh</h3>
+              <p class="experience-desc">Rejuvenate by the Ganges.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646" alt="Ayurveda" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Ayurvedic Spa Treatment</h3>
+              <p class="experience-desc">Traditional healing in Kerala.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1510894347714-16b3b1e0b9a8" alt="Meditation" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Wellness</span>
+              <h3>Himalayan Meditation</h3>
+              <p class="experience-desc">Find inner peace in the mountains.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Festivals Section -->
+      <div id="festivals" class="experience-category">
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1603035702879-4fe69df18cdd" alt="Diwali" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Diwali Celebrations</h3>
+              <p class="experience-desc">Festival of lights across India.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1518632618336-313b8a0a9b6c" alt="Holi" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Holi Festival</h3>
+              <p class="experience-desc">Vibrant colors and joy.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018" alt="Pushkar Fair" class="experience-img">
+            <div class="experience-info">
+              <span class="experience-type">Festivals</span>
+              <h3>Pushkar Camel Fair</h3>
+              <p class="experience-desc">Rajasthan's cultural extravaganza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Incredible India. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      this.querySelector('i').classList.toggle('fa-times');
+    });
+
+     // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        // Add active to clicked button
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        
+        // Hide all categories
+        document.querySelectorAll('.experience-category').forEach(category => {
+          category.style.display = 'none';
+        });
+        
+        // Show selected category
+        if (filter === 'all') {
+          document.querySelectorAll('.experience-category').forEach(category => {
+            category.style.display = 'block';
+          });
+        } else {
+          document.getElementById(filter).style.display = 'block';
+        }
+      });
+    });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
