@@ -1,0 +1,561 @@
+rgba(5, 191, 219, 0.2)     use this color as background color in this contact  page. <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Incredible India</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+.logo {
+  font-size: 1.8rem; /* Increase to match experience.html */
+  font-weight: bold;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Optional: Removes underline */
+}
+
+    /* Contact Section Styles */
+    .contact-section {
+      padding: 5rem 0;
+      background-color: #f9f9f9;
+      position: relative;
+    }
+    
+    .contact-section .section-title {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .contact-section .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .contact-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+    
+    .contact-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    
+    .contact-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+    
+    .contact-item {
+      display: flex;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(5, 191, 219, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    
+    .contact-text p, .contact-text address {
+      color: #666;
+      line-height: 1.6;
+      font-style: normal;
+    }
+    
+    .map-link, .email-link {
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .map-link i, .email-link i {
+      margin-right: 0.5rem;
+    }
+    
+    .map-link:hover, .email-link:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+    
+    .timings {
+      display: block;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+    
+    .social-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+    }
+    
+    .social-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link.facebook { background: #3b5998; }
+    .social-link.twitter { background: #1da1f2; }
+    .social-link.instagram { background: #e1306c; }
+    .social-link.youtube { background: #ff0000; }
+    .social-link.linkedin { background: #0077b5; }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Contact Form Styles */
+    .contact-form-container {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(15, 188, 24, 0.05);
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid #bebcbc;
+      border-radius: 6px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(5, 191, 219, 0.2);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .submit-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .submit-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(211, 208, 208, 0.1);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-card {
+        padding: 2rem;
+      }
+    
+      .contact-form-container {
+        padding: 2rem;
+      }
+    }
+  
+    @media (max-width: 576px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-card,
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <i class="fas fa-map-marked-alt"></i> Indian Tourism
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="Experience.html">Experiences</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="login.html" class="btn btn-outline">Login</a></li>
+        </ul>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">We'd love to hear from you! Reach out to us for inquiries, partnerships, or travel information.</p>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <h3 class="contact-heading">Our Information</h3>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Headquarters</h4>
+                  <address>
+                    Ministry of Tourism, Government of India<br>
+                    Transport Bhawan, 1 Parliament Street<br>
+                    New Delhi, India - 110001
+                  </address>
+                  <a href="https://maps.google.com/?q=Transport+Bhawan+New+Delhi" class="map-link" target="_blank" rel="noopener">
+                    <i class="fas fa-map-marked-alt"></i> View on Map
+                  </a>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Contact Numbers</h4>
+                  <p>
+                    <a href="tel:+911112345678">+91 11 1234 5678</a> (General Inquiries)<br>
+                    <a href="tel:+911187654321">+91 11 8765 4321</a> (Tourism Support)<br>
+                    <span class="timings">Mon-Fri: 9:00 AM - 6:00 PM IST</span>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email Addresses</h4>
+                  <p>
+                    <a href="mailto:info@indiantourism.org" class="email-link">info@indiantourism.org</a><br>
+                    <a href="mailto:support@indiantourism.org" class="email-link">support@indiantourism.org</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-section">
+              <h3 class="contact-heading">Connect With Us</h3>
+              <p class="social-description">Follow us for travel inspiration and updates</p>
+              <div class="social-links">
+                <a href="https://www.facebook.com/incredibleindia/" class="social-link facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/incredibleindia" class="social-link twitter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/incredibleindia/" class="social-link instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/user/incredibleindia" class="social-link youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/incredible-india" class="social-link linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-container">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Full Name*</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address*</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject*</label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select a topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="tourism">Tourism Information</option>
+                <option value="partnership">Partnership Opportunity</option>
+                <option value="feedback">Feedback/Suggestions</option>
+                <option value="press">Press/Media Inquiry</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message*</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Incredible India</h3>
+          <p>Discover the land of diverse cultures, rich heritage and breathtaking landscapes.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        
+      <div class="footer-column">
+  <h3>Contact Info</h3>
+  <ul class="footer-links">
+    <li>
+      <a href="https://maps.google.com/?q=Ministry+of+Tourism,+New+Delhi" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-map-marker-alt"></i> Ministry of Tourism, New Delhi
+      </a>
+    </li>
+    <li>
+      <a href="tel:+911112345678">
+        <i class="fas fa-phone"></i> +91 11 12345678
+      </a>
+    </li>
+    <li>
+      <a href="mailto:info@incredibleindia.org">
+        <i class="fas fa-envelope"></i> info@incredibleindia.org
+      </a>
+    </li>
+  </ul>
+</div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Incredible India. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Form submission handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('.submit-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const originalText = btnText.textContent;
+      
+      // Show loading state
+      btnText.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      
+      // Simulate form submission (replace with actual fetch/AJAX call)
+      setTimeout(() => {
+        // In a real implementation, you would send the form data to your server
+        // fetch('/api/contact', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify({
+        //     name: form.name.value,
+        //     email: form.email.value,
+        //     phone: form.phone.value,
+        //     subject: form.subject.value,
+        //     message: form.message.value
+        //   })
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        //   if (data.success) {
+        //     showSuccessMessage();
+        //     form.reset();
+        //   } else {
+        //     showErrorMessage(data.message);
+        //   }
+        // })
+        
+        // Simulated success response
+        showSuccessMessage();
+        form.reset();
+        btnText.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+    
+    function showSuccessMessage() {
+      alert('Thank you for your message! We will get back to you soon.');
+    }
+    
+    function showErrorMessage(message) {
+      alert('Error: ' + message);
+    }
+  </script>
+</body>
+</html>
