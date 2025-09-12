@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incredible India | Official Tourism Website</title>
+  <meta name="description" content="Discover the incredible diversity of India - from heritage sites to beaches, mountains, wildlife and spiritual destinations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Style.css">
+  <style>
+  
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header id="header">
+<div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <i class="fas fa-map-marked-alt"></i> Indian Tourism
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="Index.html" class="active">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="Experience.html">Experiences</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn btn-outline">Login</a></li>
+        </ul>
+        
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Discover the Incredible Diversity of India</h1>
+        <p>Explore 50+ amazing destinations from the Himalayas to the Indian Ocean</p>
+        <div class="search-container">
+          <input type="text" id="destinationSearch" placeholder="Search destinations...">
+          <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="section destinations" id="destinations">
+    <div class="container">
+      <h2 class="section-title">Featured Destinations</h2>
+      <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        India offers a diverse range of experiences from heritage sites to beaches, mountains, wildlife and spiritual destinations.
+      </p>
+      
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="heritage"><a href="heritage.html">Heritage</a></button>
+        <button class="filter-btn" data-filter="beach"><a href="beaches.html">Beaches</a></button>
+        <button class="filter-btn" data-filter="mountain"><a href="Mountains.html">Mountains</a></button>
+        <button class="filter-btn" data-filter="wildlife"><a href="wildlife.html">Wildlife</a></button>
+        <button class="filter-btn" data-filter="spiritual"><a href="spiritual.html">Spiritual</a></button>
+      </div>
+      
+      <div class="places-grid" id="places-container">
+        <!-- Places loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences Section -->
+  <section class="section" id="experiences" style="background: #f8f9fa;">
+    <div class="container">
+      <h2 class="section-title">Unique Experiences</h2>
+      <div class="experiences-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <div class="experience-card" style="background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);">
+          <div style="height: 200px; background: url('experience1.jpg') center center/cover;"></div>
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 1rem;">Yoga & Wellness Retreats</h3>
+            <p style="margin-bottom: 1.5rem; color: #666;">Discover the ancient practice of yoga in its birthplace with authentic retreats across India.</p>
+            <a href="#" class="btn" style="display: inline-block;">Explore</a>
+          </div>
+        </div>
+        
+        <div class="experience-card" style="background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);">
+          <div style="height: 200px; background: url('C:\Users\Lenovo\Pictures') "> </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 1rem;">Wildlife Safaris</h3>
+            <p style="margin-bottom: 1.5rem; color: #666;">Spot tigers, elephants, rhinos and more in India's incredible national parks.</p>
+            <a href="#" class="btn" style="display: inline-block;">Explore</a>
+          </div>
+        </div>
+        
+        <div class="experience-card" style="background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow);">
+          <div style="height: 200px; background: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center center/cover;"></div>
+          <div style="padding: 1.5rem;">
+            <h3 style="margin-bottom: 1rem;">Cultural Festivals</h3>
+            <p style="margin-bottom: 1.5rem; color: #666;">Experience India's vibrant festivals from Diwali to Holi and Pushkar Camel Fair.</p>
+            <a href="#" class="btn" style="display: inline-block;">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle" style="text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Have questions or need help planning your trip? Our travel experts are here to assist you.
+      </p>
+      
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="What's your question about?">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Tell us how we can help..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="container">
+      <h2>Stay Updated</h2>
+      <p>Subscribe to our newsletter for travel inspiration, special offers and the latest updates on Indian tourism.</p>
+      
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Incredible India</h3>
+          <p style="opacity: 0.8; margin-bottom: 1rem;">Discover the land of diverse cultures, rich heritage and breathtaking landscapes.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="Experience.html">Experiences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="travelguides.html">Travel Guides</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="FAQs.html">FAQs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="Terms-of-Service.html">Terms & Conditions</a></li>
+            <li><a href="helpcenter.html">Help Center</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Ministry of Tourism, New Delhi</li>
+            <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +91 11 12345678</li>
+            <li><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> info@incredibleindia.org</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Incredible India. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Complete list of 50+ Indian tourist places
+    const places = [
+      // Heritage Sites
+      { id: 1, name: "Taj Mahal", category: "heritage", image:"D:\mahesh\FinalProject", description: "Iconic white marble mausoleum in Agra, a UNESCO World Heritage Site and one of the New Seven Wonders of the World." },
+      { id: 2, name: "Red Fort", category: "heritage", image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Historic fort in Delhi that served as the main residence of Mughal Emperors for nearly 200 years." },
+      { id: 3, name: "Qutub Minar", category: "heritage", image: "https://images.unsplash.com/photo-1585506942812-72b5b5d54c6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80", description: "73-meter tall brick minaret, the tallest in the world, built in 1193 as a victory tower." },
+      { id: 4, name: "Hampi", category: "heritage", image: "https://images.unsplash.com/photo-1584811644727-6e706d53579e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Ruins of the magnificent 14th-century Vijayanagara Empire spread over 4,100 hectares." },
+      { id: 5, name: "Khajuraho Temples", category: "heritage", image: "https://images.unsplash.com/photo-1585504208951-3f1d2e269d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Group of Hindu and Jain temples famous for their nagara-style architecture and erotic sculptures." },
+      
+      // Beaches
+      { id: 6, name: "Goa Beaches", category: "beach", image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80", description: "Famous for golden sandy shores, vibrant nightlife, water sports, and Portuguese heritage architecture." },
+      { id: 7, name: "Andaman Beaches", category: "beach", image: "https://images.unsplash.com/photo-1587131780296-ee0abf169a4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Pristine beaches with crystal clear waters, coral reefs and water activities in the Bay of Bengal." },
+      { id: 8, name: "Kovalam", category: "beach", image: "https://images.unsplash.com/photo-1588412192039-4d02c9f1d2a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Popular beach destination in Kerala with crescent-shaped beaches and historic lighthouse views." },
+      { id: 9, name: "Puri Beach", category: "beach", image: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80", description: "Famous beach in Odisha known for its religious significance near the Jagannath Temple." },
+      { id: 10, name: "Gokarna", category: "beach", image: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80", description: "Peaceful alternative to Goa with sacred temples and pristine Om Beach shaped like the sacred symbol." },
+      
+      // Mountains
+      { id: 11, name: "Leh-Ladakh", category: "mountain", image: "https://images.unsplash.com/photo-1588412192039-4d02c9f1d2a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "High-altitude desert with stunning landscapes, Buddhist monasteries, and adventure sports." },
+      { id: 12, name: "Shimla", category: "mountain", image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Former summer capital of British India with colonial architecture, toy train, and apple orchards." },
+      // Continuing the places array...
+      { id: 13, name: "Manali", category: "mountain", image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80", description: "Popular hill station in the Himalayas known for adventure sports, snow-capped peaks and apple orchards." },
+      { id: 14, name: "Darjeeling", category: "mountain", image: "https://images.unsplash.com/photo-1564501049415-5bb8f52d2d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Famous for its tea plantations, Himalayan Railway, and stunning views of Kanchenjunga." },
+      { id: 15, name: "Mussoorie", category: "mountain", image: "https://images.unsplash.com/photo-1585506942812-72b5b5d54c6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1468&q=80", description: "Queen of the Hills with colonial charm, waterfalls, and panoramic views of the Doon Valley." },
+      
+      // Wildlife
+      { id: 16, name: "Ranthambore", category: "wildlife", image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", description: "One of the best places to spot Bengal tigers in their natural habitat with a historic fort backdrop." },
+      { id: 17, name: "Kaziranga", category: "wildlife", image: "https://images.unsplash.com/photo-1585504208951-3f1d2e269d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "UNESCO site home to two-thirds of the world's one-horned rhinoceros population." },
+      { id: 18, name: "Sundarbans", category: "wildlife", image: "https://images.unsplash.com/photo-1584811644727-6e706d53579e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Largest mangrove forest in the world and habitat of the Royal Bengal tiger." },
+      { id: 19, name: "Periyar", category: "wildlife", image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80", description: "Kerala's famous tiger reserve where you can spot wildlife on boat cruises in the lake." },
+      { id: 20, name: "Bandhavgarh", category: "wildlife", image: "https://images.unsplash.com/photo-1564501049415-5bb8f52d2d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "National park with high density of tigers and ancient Bandhavgarh Fort ruins." },
+      
+      // Spiritual
+      { id: 21, name: "Varanasi", category: "spiritual", image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", description: "One of the world's oldest living cities and sacred site of Hindu pilgrimage on the Ganges." },
+      { id: 22, name: "Golden Temple", category: "spiritual", image: "https://images.unsplash.com/photo-1585504208951-3f1d2e269d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Holiest Sikh gurdwara with golden dome and community kitchen serving free meals." },
+      { id: 23, name: "Bodh Gaya", category: "spiritual", image: "https://images.unsplash.com/photo-1584811644727-6e706d53579e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Where Buddha attained enlightenment under the Bodhi Tree - most sacred Buddhist site." },
+      { id: 24, name: "Tirupati", category: "spiritual", image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80", description: "Famous temple town with Venkateswara Temple, one of India's richest pilgrimage centers." },
+      { id: 25, name: "Ajmer Sharif", category: "spiritual", image: "https://images.unsplash.com/photo-1564501049415-5bb8f52d2d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Important Sufi shrine of Khwaja Moinuddin Chishti attracting devotees of all faiths." },
+      
+      // More Heritage
+      { id: 26, name: "Fatehpur Sikri", category: "heritage", image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", description: "Mughal capital built by Akbar with stunning red sandstone architecture and Buland Darwaza." },
+      { id: 27, name: "Mahabalipuram", category: "heritage", image: "https://images.unsplash.com/photo-1585504208951-3f1d2e269d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "UNESCO site with 7th-8th century rock-cut temples and shore temple by the Bay of Bengal." },
+      { id: 28, name: "Konark Sun Temple", category: "heritage", image: "https://images.unsplash.com/photo-1584811644727-6e706d53579e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "13th-century temple shaped like a giant chariot dedicated to the sun god Surya." },
+      
+      // More Beaches
+      { id: 29, name: "Lakshadweep", category: "beach", image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80", description: "Pristine coral atolls with white sandy beaches and turquoise lagoons in the Arabian Sea." },
+      { id: 30, name: "Diu", category: "beach", image: "https://images.unsplash.com/photo-1564501049415-5bb8f52d2d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Former Portuguese colony with beautiful beaches, fortresses and churches." },
+      
+      // More Mountains
+      { id: 31, name: "Gulmarg", category: "mountain", image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", description: "Popular skiing destination in Kashmir with world's second highest gondola ride." },
+      { id: 32, name: "Coorg", category: "mountain", image: "https://images.unsplash.com/photo-1585504208951-3f1d2e269d1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Scotland of India with coffee plantations, waterfalls and misty hills in Karnataka." },
+      
+      // More Wildlife
+      { id: 33, name: "Jim Corbett", category: "wildlife", image: "https://images.unsplash.com/photo-1584811644727-6e706d53579e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "India's first national park famous for Bengal tigers and diverse wildlife." },
+      { id: 34, name: "Gir Forest", category: "wildlife", image: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1494&q=80", description: "Only natural habitat of Asiatic lions located in Gujarat." },
+      
+      // More Spiritual
+      { id: 35, name: "Amritsar", category: "spiritual", image: "https://images.unsplash.com/photo-1564501049415-5bb8f52d2d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80", description: "Spiritual center of Sikhism with the Golden Temple and historic Jallianwala Bagh." },
+      { id: 36, name: "Rishikesh", category: "spiritual", image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80", description: "Yoga capital of the world on the Ganges with ashrams and adventure sports." }
+    ];
+    
+    
+    // Filter places by category
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const placesContainer = document.getElementById('places-container');
+    
+    // Display all places initially
+    displayPlaces(places);
+    
+    // Filter places when buttons are clicked
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        if (filter === 'all') {
+          displayPlaces(places);
+        } else {
+          const filteredPlaces = places.filter(place => place.category === filter);
+          displayPlaces(filteredPlaces);
+        }
+      });
+    });
+    
+    // Function to display places
+    function displayPlaces(placesToDisplay) {
+      placesContainer.innerHTML = '';
+      
+      placesToDisplay.forEach(place => {
+        const placeCard = document.createElement('div');
+        placeCard.className = 'place-card';
+        placeCard.innerHTML = `
+          <div class="place-image" style="background-image: url('${place.image}')"></div>
+          <div class="place-info">
+            <h3>${place.name}</h3>
+            <p>${place.description}</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        `;
+        placesContainer.appendChild(placeCard);
+      });
+    }
+    
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Close mobile menu if open
+          if(navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.querySelector('i').classList.remove('fa-times');
+          }
+        }
+      });
+    });
+    
+    // Back to top button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if(window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if(newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = this.querySelector('input[type="email"]');
+        if(emailInput.value) {
+          alert('Thank you for subscribing to our newsletter!');
+          emailInput.value = '';
+        }
+      });
+    }
+    
+    // Contact form submission
+    const contactForm = document.querySelector('.contact-form form');
+    if(contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const searchInput = document.getElementById('destinationSearch');
+    const searchBtn = document.getElementById('searchBtn');
+    const placesContainer = document.getElementById('places-container'); // Make sure this matches your destinations container ID
+    
+    // Sample places data (replace with your actual data)
+    const places = [
+      { id: 1, name: "Taj Mahal", category: "heritage", image: "https://example.com/taj-mahal.jpg", description: "Iconic white marble mausoleum in Agra" },
+      { id: 2, name: "Goa Beaches", category: "beach", image: "https://example.com/goa.jpg", description: "Famous for golden sandy shores and vibrant nightlife" },
+      // Add all your other destinations here
+    ];
+    
+   document.addEventListener('DOMContentLoaded', function() {
+    // Get the search button and input field elements by their IDs
+    const searchButton = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('destinationSearch');
+
+    // Add a click event listener to the search button
+    searchButton.addEventListener('click', function() {
+        // Get the value from the input field
+        const searchQuery = searchInput.value;
+
+        // Check if the search query is not empty
+        if (searchQuery.trim() !== '') {
+            // Log the search query to the console for demonstration
+            console.log('User searched for:', searchQuery);
+
+            // You can add your actual search logic here.
+            // For example, you could filter a list of destinations,
+            // make an API call, or redirect to a search results page.
+            // Example: window.location.href = `/search-results.html?query=${searchQuery}`;
+        } else {
+            // Alert the user if the search field is empty
+            alert('Please enter a destination to search.');
+        }
+    });
+
+    // You can also add an event listener for the 'Enter' key press on the input field
+    searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            // Prevent the default form submission behavior (if it were in a form)
+            event.preventDefault();
+            // Trigger the button click event
+            searchButton.click();
+        }
+    });
+});
+      
+      // Filter places based on search term
+      const filteredPlaces = places.filter(place => 
+        place.name.toLowerCase().includes(searchTerm) || 
+        place.description.toLowerCase().includes(searchTerm) ||
+        place.category.toLowerCase().includes(searchTerm)
+      );
+      
+      displayPlaces(filteredPlaces);
+      
+      // Scroll to destinations section after search
+      document.getElementById('destinations').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Function to display places
+    function displayPlaces(placesToDisplay) {
+      if (!placesContainer) return;
+      
+      placesContainer.innerHTML = '';
+      
+      if (placesToDisplay.length === 0) {
+        placesContainer.innerHTML = `
+          <div class="no-results" style="grid-column: 1/-1; text-align: center; padding: 2rem;">
+            <h3>No destinations found</h3>
+            <p>Try a different search term</p>
+          </div>
+        `;
+        return;
+      }
+      
+      placesToDisplay.forEach(place => {
+        const placeCard = document.createElement('div');
+        placeCard.className = 'place-card';
+        placeCard.innerHTML = `
+          <div class="place-image" style="background-image: url('${place.image}')"></div>
+          <div class="place-info">
+            <h3>${place.name}</h3>
+            <p>${place.description}</p>
+            <a href="#" class="btn">Explore</a>
+          </div>
+        `;
+        placesContainer.appendChild(placeCard);
+      });
+    }
+    
+    // Event listeners
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+    
+    // Initialize with all places when page loads
+    if (placesContainer) {
+      displayPlaces(places);
+    }
+  });
+   
+  </script>
+</body>
+</html>
