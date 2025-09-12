@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback | Incredible India - Official Tourism Website</title>
+  <meta name="description" content="Share your feedback about your travel experiences in India and help us improve our services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Feedback Page Styles - Consistent with index.html */
+    :root {
+      --primary: #0369a1;
+      --secondary: #0e7490;
+      --accent: #0891b2;
+      --light: #f0f9ff;
+      --white: #ffffff;
+      --dark: #1e293b;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feedback-hero {
+      background: linear-gradient(rgba(3, 105, 161, 0.7), rgba(3, 105, 161, 0.7)), 
+                  url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+    }
+    
+    .feedback-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .feedback-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    
+    .feedback-container {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+    
+    .feedback-intro {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .feedback-intro h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .feedback-intro p {
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .feedback-form {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 3rem;
+      box-shadow: var(--shadow);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .rating-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .rating-label {
+      margin-right: 1rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .rating-stars {
+      display: flex;
+      direction: rtl; /* Right to left for better UX */
+    }
+    
+    .rating-stars input {
+      display: none;
+    }
+    
+    .rating-stars label {
+      color: #ddd;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .rating-stars input:checked ~ label,
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label {
+      color: #ffc107;
+    }
+    
+    .feedback-type {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feedback-type-option {
+      flex: 1;
+    }
+    
+    .feedback-type-option input {
+      display: none;
+    }
+    
+    .feedback-type-option label {
+      display: block;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .feedback-type-option input:checked + label {
+      border-color: var(--accent);
+      background: rgba(8, 145, 178, 0.1);
+      color: var(--accent);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn-block {
+      display: block;
+      width: 100%;
+    }
+    
+    .thank-you-message {
+      text-align: center;
+      padding: 4rem 2rem;
+      display: none;
+    }
+    
+    .thank-you-message i {
+      font-size: 4rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    
+    .thank-you-message h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .thank-you-message p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .feedback-hero {
+        padding: 4rem 1rem;
+      }
+      
+      .feedback-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .feedback-form {
+        padding: 2rem 1.5rem;
+      }
+      
+      .feedback-type {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation - Consistent with index.html -->
+  <header id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <i class="fas fa-map-marked-alt"></i>  Indian Tourism
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="feedback.html" class="active">Feedback</a></li>
+          <li><a href="login.html" class="btn btn-outline">Login</a></li>
+        </ul>
+        
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section - Similar to index.html but for Feedback -->
+  <section class="feedback-hero">
+    <div class="container">
+      <h1>Share Your Feedback</h1>
+      <p>Your experiences help us improve tourism services across India. We value your opinion!</p>
+    </div>
+  </section>
+
+  <main class="feedback-container">
+    <div class="feedback-intro">
+      <h2>Tell Us About Your Experience</h2>
+      <p>Whether you had a wonderful time or encountered issues, your feedback helps us enhance travel experiences for everyone visiting India.</p>
+    </div>
+    
+    <div id="feedbackForm">
+      <form class="feedback-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Type of Feedback</label>
+          <div class="feedback-type">
+            <div class="feedback-type-option">
+              <input type="radio" id="compliment" name="feedbackType" value="compliment" checked>
+              <label for="compliment"><i class="fas fa-smile"></i> Compliment</label>
+            </div>
+            <div class="feedback-type-option">
+              <input type="radio" id="suggestion" name="feedbackType" value="suggestion">
+              <label for="suggestion"><i class="fas fa-lightbulb"></i> Suggestion</label>
+            </div>
+            <div class="feedback-type-option">
+              <input type="radio" id="complaint" name="feedbackType" value="complaint">
+              <label for="complaint"><i class="fas fa-exclamation-triangle"></i> Complaint</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Your Rating</label>
+          <div class="rating-group">
+            <span class="rating-label">Overall Experience:</span>
+            <div class="rating-stars">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5"><i class="fas fa-star"></i></label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4"><i class="fas fa-star"></i></label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3"><i class="fas fa-star"></i></label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2"><i class="fas fa-star"></i></label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1"><i class="fas fa-star"></i></label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" class="form-control" placeholder="Brief summary of your feedback">
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Your Feedback</label>
+          <textarea id="message" class="form-control" placeholder="Please share details of your experience..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="location">Location/Place (if applicable)</label>
+          <input type="text" id="location" class="form-control" placeholder="Where did you have this experience?">
+        </div>
+        
+        <div class="form-group">
+          <label for="date">Date of Experience (if applicable)</label>
+          <input type="date" id="date" class="form-control">
+        </div>
+        
+        <button type="submit" class="btn btn-block">Submit Feedback</button>
+      </form>
+    </div>
+    
+    <div id="thankYouMessage" class="thank-you-message">
+      <i class="fas fa-check-circle"></i>
+      <h2>Thank You for Your Feedback!</h2>
+      <p>We appreciate you taking the time to share your experience with us. Your feedback helps us improve our services for all travelers visiting India.</p>
+      <a href="index.html" class="btn">Back to Home</a>
+    </div>
+  </main>
+
+  <!-- Footer - Consistent with index.html -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Incredible India</h3>
+          <p>Discover the land of diverse cultures, rich heritage and breathtaking landscapes.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms & Conditions</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> Ministry of Tourism, New Delhi</li>
+            <li><i class="fas fa-phone"></i> +91 11 12345678</li>
+            <li><i class="fas fa-envelope"></i> info@incredibleindia.org</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2023 Incredible India. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button - Consistent with index.html -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Mobile menu toggle - Consistent with index.html
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Back to top button - Consistent with index.html
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Feedback form submission
+    const feedbackForm = document.querySelector('.feedback-form');
+    const feedbackSection = document.getElementById('feedbackForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Here you would typically send the form data to a server
+        // For this example, we'll just show the thank you message
+        
+        // Hide form and show thank you message
+        feedbackSection.style.display = 'none';
+        thankYouMessage.style.display = 'block';
+        
+        // Scroll to thank you message
+        thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+    
+    // Star rating hover effect
+    const stars = document.querySelectorAll('.rating-stars label');
+    
+    stars.forEach(star => {
+      star.addEventListener('mouseover', function() {
+        const hoverValue = this.getAttribute('for').replace('star', '');
+        highlightStars(hoverValue);
+      });
+      
+      star.addEventListener('mouseout', function() {
+        const checkedStar = document.querySelector('.rating-stars input:checked');
+        if (checkedStar) {
+          highlightStars(checkedStar.value);
+        } else {
+          resetStars();
+        }
+      });
+    });
+    
+    function highlightStars(value) {
+      const stars = document.querySelectorAll('.rating-stars label');
+      stars.forEach(star => {
+        const starValue = star.getAttribute('for').replace('star', '');
+        if (starValue <= value) {
+          star.style.color = '#ffc107';
+        } else {
+          star.style.color = '#ddd';
+        }
+      });
+    }
+    
+    function resetStars() {
+      const stars = document.querySelectorAll('.rating-stars label');
+      stars.forEach(star => {
+        star.style.color = '#ddd';
+      });
+    }
+  </script>
+</body>
+</html>
